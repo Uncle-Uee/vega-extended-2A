@@ -1,7 +1,8 @@
 using System.Collections;
+using Adventure.Player;
 using UnityEngine;
 
-namespace Adventure
+namespace Adventure.Traps
 {
     public class RotateTrap : MonoBehaviour
     {
@@ -20,9 +21,13 @@ namespace Adventure
 
         #region UNITY METHODS
 
-        private void Start()
+        private void Awake()
         {
             _delay = new WaitForSeconds(DelayBetweenRotations);
+        }
+
+        private void Start()
+        {
             StartCoroutine(RotateTileRoutine(Rotation.x, Rotation.y));
         }
 
@@ -30,10 +35,17 @@ namespace Adventure
 
         #region METHODS
 
-        #endregion
-
+        /// <summary>
+        /// Rotate Tile on Z Axis using Lerp<br/>
+        /// </summary>
+        /// <param name="a">Start Value</param>
+        /// <param name="b">Target Value</param>
+        /// <returns></returns>
         private IEnumerator RotateTileRoutine(float a, float b)
         {
+            // The Right Way to Lerp in Unity with Examples by John
+            // https://gamedevbeginner.com/the-right-way-to-lerp-in-unity-with-examples/#right_way_to_use_lerp<br/>
+
             // PRE COROUTINE - SETUP FOR COROUTINE
             float elapsedTimed = 0f;
             float zRotation = 0f;
@@ -41,9 +53,7 @@ namespace Adventure
             while (elapsedTimed < TimeToLerp)
             {
                 // COROUTINE
-                float t = elapsedTimed / TimeToLerp;
-                t = t * t * (3f - 2f * t); // Easing Function
-                zRotation = Mathf.LerpAngle(a, b, t);
+                zRotation = Mathf.LerpAngle(a, b, EaseInOutSine(elapsedTimed / TimeToLerp));
 
                 transform.rotation = Quaternion.Euler(0f, 0f, zRotation);
 
@@ -59,5 +69,16 @@ namespace Adventure
 
             StartCoroutine(RotateTileRoutine(b, a));
         }
+
+        #endregion
+
+        #region HELPER METHODS
+
+        private float EaseInOutSine(float t)
+        {
+            return t * t * (3f - 2f * t);
+        }
+
+        #endregion
     }
 }
