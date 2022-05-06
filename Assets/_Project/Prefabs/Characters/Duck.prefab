@@ -60,7 +60,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8017780727417357616}
   - {fileID: 767146301258433379}
   m_Father: {fileID: 8861692330378928862}
   m_RootOrder: 0
@@ -179,8 +178,9 @@ Transform:
   - {fileID: 1324586998484717739}
   - {fileID: 4569869185478199712}
   - {fileID: 2379383322451271382}
+  - {fileID: 8017780727417357616}
   m_Father: {fileID: 5534974014586721486}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2245737321884336456
 GameObject:
@@ -505,14 +505,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7210036211600007050}
-  m_LocalRotation: {x: 0.00000035762784, y: -0.00000029802334, z: -0.00000006717952,
+  m_LocalRotation: {x: 0.00000043908818, y: -0.00000029802334, z: -0.00000006717954,
     w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5534974014586721486}
-  m_RootOrder: 0
+  m_Father: {fileID: 767146301258433379}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6407279225801296533
 MeshFilter:
@@ -678,3 +678,4 @@ MonoBehaviour:
   JumpHeight: 1
   Gravity: -9.81
   GroundedPlayer: 0
+  CanDoubleJump: 0

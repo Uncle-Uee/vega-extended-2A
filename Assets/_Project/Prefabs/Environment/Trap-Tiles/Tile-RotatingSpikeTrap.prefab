@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 9051727704300173497}
   - component: {fileID: 7366733424188071240}
   m_Layer: 0
-  m_Name: Tile-SpikeTrap
+  m_Name: Tile-RotatingSpikeTrap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,5 +1,5 @@
-using System;
 using System.Collections;
+using Adventure.Player;
 using UnityEngine;
 
 namespace Adventure.Traps
@@ -53,7 +53,7 @@ namespace Adventure.Traps
             while (elapsedTimed < TimeToLerp)
             {
                 // COROUTINE
-                zRotation = Mathf.LerpAngle(a, b, SimpleEasing(elapsedTimed / TimeToLerp));
+                zRotation = Mathf.LerpAngle(a, b, EaseInOutSine(elapsedTimed / TimeToLerp));
 
                 transform.rotation = Quaternion.Euler(0f, 0f, zRotation);
 
@@ -74,7 +74,7 @@ namespace Adventure.Traps
 
         #region HELPER METHODS
 
-        private float SimpleEasing(float t)
+        private float EaseInOutSine(float t)
         {
             return t * t * (3f - 2f * t);
         }
