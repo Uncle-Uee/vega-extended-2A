@@ -47,7 +47,7 @@ namespace Adventure
 
         private void SpikeTrapTween()
         {
-            transform.DOMove(TargetPosition, LerpDuration).SetLoops(-1, LoopType.Yoyo).SetEase(TrapEase);
+            transform.DOLocalMove(TargetPosition, LerpDuration).SetLoops(-1, LoopType.Yoyo).SetEase(TrapEase);
         }
 
         #endregion

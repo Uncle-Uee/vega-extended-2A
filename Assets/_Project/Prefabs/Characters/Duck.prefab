@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1765203116726324248}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: handSlotLeft
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,9 +40,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5534974014586721486}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: KayKit Animated Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,9 +75,9 @@ GameObject:
   - component: {fileID: 9142233124603119262}
   - component: {fileID: 4953897098693984364}
   - component: {fileID: 5636110863570422985}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: character_duckArmRight
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,9 +156,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 767146301258433379}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -191,9 +191,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1324586998484717739}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: armLeft
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -226,9 +226,9 @@ GameObject:
   - component: {fileID: 367088602467893870}
   - component: {fileID: 1825326584671260592}
   - component: {fileID: 5673958185661684683}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: character_duckArmLeft
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -307,9 +307,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2379383322451271382}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -341,9 +341,9 @@ GameObject:
   - component: {fileID: 3218940732623915035}
   - component: {fileID: 6744583330984560018}
   - component: {fileID: 4188645569373036310}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: character_duckHead
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -425,9 +425,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4569869185478199712}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: armRight
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -458,9 +458,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 590845315103438372}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: handSlotRight
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -491,9 +491,9 @@ GameObject:
   - component: {fileID: 8017780727417357616}
   - component: {fileID: 6407279225801296533}
   - component: {fileID: 9155762842932133471}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: character_duck
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -577,9 +577,9 @@ GameObject:
   - component: {fileID: 4471153197986455551}
   - component: {fileID: 2870649278480165899}
   - component: {fileID: 3082395145697008271}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Duck
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -637,7 +637,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.835, z: 0}
+  m_Center: {x: 0, y: 0.83, z: 0}
 --- !u!114 &2870649278480165899
 MonoBehaviour:
   m_ObjectHideFlags: 0
