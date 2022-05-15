@@ -195,8 +195,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85192e06d6de8644e801006ecc0e5165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LerpDuration: 0.5
-  StartPosition: {x: 0, y: -0.15, z: 0}
+  TrapBehaviour: {fileID: 4196108611868312752}
+--- !u!114 &4196108611868312752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269674566346478136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 318836b9fdae124408efb7c0a5fc5aa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LerpDuration: 1.5
   TargetPosition: {x: 0, y: 0, z: 0}
   TrapEase: 1
 --- !u!4 &1933481190604294274 stripped

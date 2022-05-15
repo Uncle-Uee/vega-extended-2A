@@ -11,16 +11,26 @@ namespace Adventure.Player
         [Header("Behaviours")]
         public MovementBehaviour MovementBehaviour;
 
-        [Header("Player Controls")]
+        [Header("Controllers")]
+        public AnimationController AnimationController;
+
+        [Header("Movement Actions")]
         public InputActionReference JumpAction;
         public InputActionReference LookAction;
         public InputActionReference MovementAction;
 
+        [Header("Attack Actions")]
+        public InputActionReference LightAttackAction;
+        public InputActionReference HeavyAttackAction;
+        public InputActionReference BlockAction;
+
 
         [Header("Input Properties")]
         public Vector2 MoveInput;
-        public Vector2 MouseDelta;
-        public bool Jump;
+        public bool IsJumping;
+        public bool IsLightAttacking;
+        public bool IsHeavyAttacking;
+        public bool IsBlocking;
 
         private PlayerControls _playerControls;
 
@@ -60,8 +70,28 @@ namespace Adventure.Player
 
         private void ProcessInput()
         {
-            Jump = JumpAction.action.triggered;
+            IsJumping = JumpAction.action.triggered;
             MoveInput = MovementAction.action.ReadValue<Vector2>();
+
+            AnimationController.SetIsMoving(MoveInput != Vector2.zero);
+
+            if (!IsHeavyAttacking && !IsBlocking && LightAttackAction.action.triggered)
+            {
+                IsLightAttacking = true;
+                AnimationController.SetIsLightAttacking(IsLightAttacking);
+            }
+
+            if (!IsLightAttacking && !IsBlocking && HeavyAttackAction.action.triggered)
+            {
+                IsHeavyAttacking = true;
+                AnimationController.SetIsHeavyAttacking(IsHeavyAttacking);
+            }
+
+            if (!IsLightAttacking && !IsHeavyAttacking && BlockAction.action.triggered)
+            {
+                IsBlocking = true;
+                AnimationController.SetIsBlocking(IsBlocking);
+            }
         }
 
         #endregion
@@ -70,7 +100,7 @@ namespace Adventure.Player
 
         private void Movement()
         {
-            MovementBehaviour.Movement(MoveInput, Jump);
+            MovementBehaviour.Movement(MoveInput, IsJumping);
         }
 
         #endregion
@@ -85,9 +115,14 @@ namespace Adventure.Player
         public override void DoOnEnable()
         {
             _playerControls.Enable();
+
             MovementAction.action.Enable();
             LookAction.action.Enable();
             JumpAction.action.Enable();
+
+            LightAttackAction.action.Enable();
+            HeavyAttackAction.action.Enable();
+            BlockAction.action.Enable();
         }
 
         public override void DoOnStart()
@@ -97,17 +132,27 @@ namespace Adventure.Player
         public override void DoOnDisable()
         {
             _playerControls.Disable();
+
             MovementAction.action.Disable();
             LookAction.action.Disable();
             JumpAction.action.Disable();
+
+            LightAttackAction.action.Disable();
+            HeavyAttackAction.action.Disable();
+            BlockAction.action.Disable();
         }
 
         public override void DoOnDestroy()
         {
             _playerControls.Dispose();
+
             MovementAction.action.Dispose();
             LookAction.action.Dispose();
             JumpAction.action.Dispose();
+
+            LightAttackAction.action.Dispose();
+            HeavyAttackAction.action.Dispose();
+            BlockAction.action.Dispose();
         }
 
         #endregion

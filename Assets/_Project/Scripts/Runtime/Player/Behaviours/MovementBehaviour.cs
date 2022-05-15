@@ -9,6 +9,9 @@ namespace Adventure.Player
         [Header("Required Components")]
         public CharacterController Controller;
 
+        [Header("Player Entity")]
+        public PlayerEntity PlayerEntity;
+
         [Header("Controller Properties")]
         public float MoveSpeed = 2.0f;
         public float RotationSpeed = 5f;
@@ -38,6 +41,12 @@ namespace Adventure.Player
 
         public void Movement(Vector2 input, bool jump)
         {
+            if ((PlayerEntity.IsLightAttacking || PlayerEntity.IsHeavyAttacking || PlayerEntity.IsBlocking) && Controller.isGrounded)
+            {
+                Controller.Move(Vector3.zero);
+                return;
+            }
+
             GroundedPlayer = Controller.isGrounded;
             if (GroundedPlayer && _playerVelocity.y < 0)
             {
@@ -51,7 +60,7 @@ namespace Adventure.Player
 
             if (move != Vector3.zero)
             {
-                gameObject.transform.forward = move;
+                transform.forward = move;
             }
 
             // Changes the height position of the player..
@@ -64,7 +73,7 @@ namespace Adventure.Player
             if (jump && !GroundedPlayer && CanDoubleJump)
             {
                 CanDoubleJump = false;
-                
+
                 _playerVelocity.y += Mathf.Abs(_playerVelocity.y) + Mathf.Sqrt(JumpHeight * -3.0f * Gravity);
             }
 
