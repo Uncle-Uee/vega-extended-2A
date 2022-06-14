@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using WebRequest;
@@ -12,6 +11,9 @@ namespace WebRequest
 
         [Header("Player Properties")]
         public Player Player;
+
+        [Header("REST Properties")]
+        public string URL = "https://6271a93ac455a64564b62dd2.mockapi.io/players";
 
         #endregion
 
@@ -28,17 +30,18 @@ namespace WebRequest
 
         private IEnumerator DeleteRequest()
         {
-            using (UnityWebRequest request = UnityWebRequest.Delete($"https://6271a93ac455a64564b62dd2.mockapi.io/players{Player.ID}"))
+            using (UnityWebRequest request = UnityWebRequest.Delete($@"{URL}\{Player.ID}"))
             {
+                request.method = "DELETE";
                 yield return request.SendWebRequest();
 
                 if (request.result != UnityWebRequest.Result.Success)
                 {
-                    print("Failed to Create Player!");
+                    print("Failed to Delete Player!");
                 }
                 else
                 {
-                    print("Successfully Created Player!");
+                    print("Successfully Deleted Player!");
                 }
             }
         }
